@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class GameManager : MonoBehaviour {
+using TMPro;
+
+public class GameManager : Singleton<GameManager> {
+
+    [SerializeField]
+    TextMeshProUGUI scoreText;
 
     int score;
 
 	// Use this for initialization
 	void Start () {
-        score = 0;
+        //score = 0;
 	}
 	
 	// Update is called once per frame
@@ -20,11 +25,6 @@ public class GameManager : MonoBehaviour {
             SceneManager.LoadScene("GameOver",LoadSceneMode.Additive);
         }
 
-        //Aキーが押されたら点数を入れる
-        if(Input.GetKey(KeyCode.A))
-        {
-            score += 10;
-            Debug.Log(score);
-        }
+        
 	}
 }
